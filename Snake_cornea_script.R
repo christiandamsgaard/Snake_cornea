@@ -151,6 +151,18 @@ pgls_ct_ou               <- gls(model = ct~svl,
 aicw(c(AIC(pgls_ct_bm),AIC(pgls_ct_ou)))
 # OU model is best
 
+
+# check for homogeneity of the fitted residuals
+plot(pgls_ct_bm, 
+     resid(., type="n")~fitted(.),
+     abline = c(0,0))
+
+# check for normal distribution of the fitted residuals
+qqnorm(resid(pgls_ct_bm, type="n"))
+qqline(resid(pgls_ct_bm, type="n"))
+
+
+
 # Plot scatter plot
 ggplot(data_sp, aes(x=svl,y=ct,col=Habitat,shape=Period))+
   geom_point(size = 3)+
@@ -189,6 +201,15 @@ pgls_sd_ou               <- gls(model = sd~svl,
 
 aicw(c(AIC(pgls_sd_bm),AIC(pgls_sd_ou)))
 # BM model is best
+
+# check for homogeniety of the fitted residuals
+plot(pgls_sd_bm, 
+     resid(., type="n")~fitted(.),
+     abline = c(0,0))
+
+# check for normal distribution of the fitted residuals
+qqnorm(resid(pgls_sd_bm, type="n"))
+qqline(resid(pgls_sd_bm, type="n"))
 
 
 # Plot scatter plot
@@ -229,6 +250,17 @@ pgls_st_ou               <- gls(model = st~svl,
 
 aicw(c(AIC(pgls_st_bm),AIC(pgls_st_ou)))
 # BM model is best
+
+
+# check for homogeneity of the fitted residuals
+plot(pgls_st_bm, 
+     resid(., type="n")~fitted(.),
+     abline = c(0,0))
+
+# check for normal distribution of the fitted residuals
+qqnorm(resid(pgls_st_bm, type="n"))
+qqline(resid(pgls_st_bm, type="n"))
+
 
 
 
@@ -458,6 +490,17 @@ aicw(c(AIC(pgls_ct.sd_bm),AIC(pgls_ct.sd_ou)))
 summary(pgls_ct.sd_ou)$tTable
 
 
+# check for homogeneity of the fitted residuals
+plot(pgls_ct.sd_ou, 
+     resid(., type="n")~fitted(.),
+     abline = c(0,0))
+
+# check for normal distribution of the fitted residuals
+qqnorm(resid(pgls_ct.sd_ou, type="n"))
+qqline(resid(pgls_ct.sd_ou, type="n"))
+
+
+
 # Plot scatter plot
 ggplot(data_sp, aes(x=sd,y=ct,col=Habitat,shape=Period))+
   geom_point(size = 3)+
@@ -549,6 +592,17 @@ aicw(c(AIC(pgls_st.sd_bm),AIC(pgls_st.sd_ou)))
 summary(pgls_st.sd_bm)$tTable
 
 
+# check for homogeneity of the fitted residuals
+plot(pgls_st.sd_bm, 
+     resid(., type="n")~fitted(.),
+     abline = c(0,0))
+
+# check for normal distribution of the fitted residuals
+qqnorm(resid(pgls_st.sd_bm, type="n"))
+qqline(resid(pgls_ct.sd_ou, type="n"))
+
+
+
 # Plot scatter plot
 ggplot(data_sp, aes(x=sd,y=st,col=Habitat,shape=Period))+
   geom_point(size = 3)+
@@ -638,6 +692,16 @@ aicw(c(AIC(pgls_ct.st_bm),AIC(pgls_ct.st_ou)))
 # BM model is best
 
 summary(pgls_ct.st_bm)$tTable
+
+# check for homogeneity of the fitted residuals
+plot(pgls_ct.st_bm, 
+     resid(., type="n")~fitted(.),
+     abline = c(0,0))
+
+# check for normal distribution of the fitted residuals
+qqnorm(resid(pgls_ct.st_bm, type="n"))
+qqline(resid(pgls_ct.st_bm, type="n"))
+
 
 
 # Plot scatter plot
